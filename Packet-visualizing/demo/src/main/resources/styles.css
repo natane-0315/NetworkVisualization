@@ -1,0 +1,31 @@
+:root{
+    --Rootbackcolor: #3bc7c092;
+}
+
+.root{
+    /*#3bc7c092;*/
+    background-color: #3bc7c092;
+    -fx-background-color: #3bc7c092;
+}
+.start-button{
+    -fx-border-color:var(--Rootbackcolor);
+}
+.stop-button{
+    -fx-border-color:var(--Rootbackcolor);
+}
+.reset-button{
+    -fx-border-color:var(--Rootbackcolor);
+}
+.time-label{
+
+}
+.lap-button{
+
+}
+.logArea{
+    background-color:var(--Rootbackcolor);
+    -fx-background-color:var(--Rootbackcolor);
+}
+.table-view{
+    -fx-background-color:var(--Rootbackcolor);
+}
