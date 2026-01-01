@@ -17,7 +17,7 @@ public class AnomalyDetector {
     // 脈拍データを受け取り、体温を計算して警告を出す
     public void checkAnomaly(int port, double currentRate) {
         if (!BASELINES.containsKey(port)) {
-            return; 
+            return;
         }
         
         Baseline base = BASELINES.get(port);
