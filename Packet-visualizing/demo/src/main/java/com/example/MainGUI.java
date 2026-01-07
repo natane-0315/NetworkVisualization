@@ -19,18 +19,19 @@ public class MainGUI extends Application {
 
             CaptureController controller = loader.getController();
 
+            
+
+            primaryStage.setTitle("デジタル・バイタルサイン分析システム");
             try {
             // アイコンのロードは失敗する可能性があるため、tryで保護
-            Image applicationIcon = new Image(getClass().getResourceAsStream("/App.png"));
+            Image applicationIcon = new Image(getClass().getResourceAsStream("/Appico.png"));
             primaryStage.getIcons().add(applicationIcon);
+            
         } catch (Exception e) {
             // アイコン設定が失敗しても、致命的ではないため、エラーを出力して続行
             System.err.println("アプリアイコンのロードに失敗しました: " + e.getMessage());
         }
         // ★★★ 内側の try ブロック 終わり ★★★
-
-            primaryStage.setTitle("デジタル・バイタルサイン分析システム");
-            
             primaryStage.setScene(new Scene(root, 800, 650));
             primaryStage.show();
             

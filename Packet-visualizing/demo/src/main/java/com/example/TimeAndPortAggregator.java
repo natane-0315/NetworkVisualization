@@ -41,6 +41,7 @@ public class TimeAndPortAggregator {
     
     // MainAppのタイマーから定期的に呼び出され、計算とリセットを行う
     public VitalSignData calculateAndReset(Instant currentTime) {
+
         long elapsedSeconds = Duration.between(lastLogTime, currentTime).getSeconds();
         if (elapsedSeconds == 0) return new VitalSignData(new HashMap<>(), 0.0); //GUI追加時にreturn後の内容追加
 
@@ -55,16 +56,16 @@ public class TimeAndPortAggregator {
             //System.out.println("[脈拍] Port " + port + ": " + String.format("%.2f", rate) + " pkt/s");
             currentPulseRates.put(port, rate);//out.printの代わりにGUIへデータを送る
             detector.checkAnomaly(port, rate);
-           
     }
 
     double smugglingRate = (totalBytes > 0) ? (double) highPortBytes / totalBytes * 100.0 : 0.0 ;
-
     portPacketCounts.clear();
     highPortBytes = 0;
+    
     lastLogTime = currentTime;
-
     return new VitalSignData( currentPulseRates, smugglingRate);}
+
+
 
     private int getDstPort(Packet packet) {
         if (packet.contains(TcpPacket.class)) {

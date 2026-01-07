@@ -48,7 +48,7 @@
 
     <left>
         <VBox spacing="10">
-            <BorderPane.margin><Insets top="10" right="10" bottom="10" left="10" /></BorderPane.margin>
+            <BorderPane.margin><Insets top="10" right="100" bottom="10" left="10" /></BorderPane.margin>
             
             <Label text="富の集中度 (エントロピー E):"  styleClass= "text" />
             <Label fx:id="entropyLabel" text="0.00"  styleClass= "textBox"><font><Font size="16.0" /></font></Label>

@@ -51,6 +51,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
+                    
                     <release>21</release>
                 </configuration>
             </plugin>
@@ -68,6 +69,12 @@
                     <jvmArgs>
                         <jvmArg>--enable-native-access=ALL-UNNAMED</jvmArg>
                     </jvmArgs>
+                    <mainClass>com.example.MainGUI</mainClass>
+                <launcher>run-app</launcher>
+                <jlinkImageName>demo-app</jlinkImageName>
+                <stripDebug>true</stripDebug>
+
+                <icon>src/main/resources/Appico.png</icon>
                 </configuration>
                 <executions>
                     <execution>
