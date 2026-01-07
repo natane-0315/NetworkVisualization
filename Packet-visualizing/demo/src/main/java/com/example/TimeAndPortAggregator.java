@@ -43,7 +43,7 @@ public class TimeAndPortAggregator {
     public VitalSignData calculateAndReset(Instant currentTime) {
 
         long elapsedSeconds = Duration.between(lastLogTime, currentTime).getSeconds();
-        if (elapsedSeconds == 0) return new VitalSignData(new HashMap<>(), 0.0); //GUI追加時にreturn後の内容追加
+        if (elapsedSeconds == 0) return new VitalSignData(new HashMap<>(), 0.0, 0.0); //GUI追加時にreturn後の内容追加
 
         Map<Integer, Double> currentPulseRates = new HashMap<>(); //GUI実装時に追加
 
@@ -59,13 +59,14 @@ public class TimeAndPortAggregator {
     }
 
     double smugglingRate = (totalBytes > 0) ? (double) highPortBytes / totalBytes * 100.0 : 0.0 ;
+
+    double currentMbps = (totalBytes * 8.0) / (elapsedSeconds * 1_000_000.0) ;
+
     portPacketCounts.clear();
     highPortBytes = 0;
-    
+    totalBytes = 0;
     lastLogTime = currentTime;
-    return new VitalSignData( currentPulseRates, smugglingRate);}
-
-
+    return new VitalSignData( currentPulseRates, smugglingRate,currentMbps);}
 
     private int getDstPort(Packet packet) {
         if (packet.contains(TcpPacket.class)) {

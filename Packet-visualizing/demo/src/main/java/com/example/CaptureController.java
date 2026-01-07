@@ -161,6 +161,7 @@ public class CaptureController {
                 entry -> pulseRateLabel.setText(String.format("Port %d: %.2f pkt/s", entry.getKey(), entry.getValue())),
                 () -> pulseRateLabel.setText("データなし")
             );
+            
     }
     
     // PacketCapture.javaにこれらのメソッドがまだない場合、エラーを避けるために追加が必要

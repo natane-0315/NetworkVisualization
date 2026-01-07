@@ -10,10 +10,12 @@ import java.util.HashMap;
 public class VitalSignData {
     public final Map<Integer, Double> pulseRates;
     public final double smugglingRate;
+    public final double mbps;
 
-    public VitalSignData(Map<Integer, Double> pulseRates, double smugglingRate) {
+    public VitalSignData(Map<Integer, Double> pulseRates, double smugglingRate , double mbps) {
         // マップは変更不可にして安全性を高めます
         this.pulseRates = Collections.unmodifiableMap(new HashMap<>(pulseRates));
         this.smugglingRate = smugglingRate;
+        this.mbps = mbps;
     }
 }
