@@ -1,31 +1,116 @@
 :root{
-    --Rootbackcolor: #3bc7c092;
+    
 }
 
 .root{
-    /*#3bc7c092;*/
-    background-color: #3bc7c092;
-    -fx-background-color: #3bc7c092;
+/*
+    --orange:#ffd1d1;
+    --red:#ffd1e8;
+    --pink:#ffd1ff;
+    --purple:#e8d1ff;
+    --violet:#d1d1ff;
+    --blue:#d1e8ff;
+    --skyblue:#d1ffff;
+    --mintgreen:#d1ffe8;
+    --green:#d1ffd1;
+    --leaf:#e8ffd1;
+    --yellow:#ffffd1;
+    --usuorange:#ffe8d1;
+    --black:#000000;
+*/
+    -fx-background-color: linear-gradient(to right, #d1d1ff, #87cefa);
+    
 }
-.start-button{
-    -fx-border-color:var(--Rootbackcolor);
+
+#nifComboBox .combo-box{
+
+    -fx-background-color:linear-gradient(to right,#d1ffe8 , #ffe8d1);
+    -fx-text-fill:#000000;
 }
-.stop-button{
-    -fx-border-color:var(--Rootbackcolor);
+#nifComboBox .list-cell{
+    -fx-background-color:linear-gradient(to right,#d1ffe8 , #ffe8d1);
+    -fx-text-fill:#000000;
 }
-.reset-button{
-    -fx-border-color:var(--Rootbackcolor);
+#nifComboBox .arrow-button{
+    -fx-background-color:transparent;
+    -fx-text-fill:#000000;
 }
-.time-label{
+#startButton {
+    -fx-background-color: linear-gradient(to right,#d1ffe8 , #ffe8d1);
+    
+    -fx-text-fill:#000000;
+
 
 }
-.lap-button{
+.textBox{
+    /*-fx-background-color:#ffe8d1;*/
+    -fx-text-fill:#000000;
+}
 
+/* FXMLの fx:id="stopButton" にスタイルを適用 */
+#stopButton {
+    /* ベースカラー: パステルパープル (例: #BDBDE7) */
+    -fx-background-color: linear-gradient(to right,#d1ffe8 , #ffe8d1);
+    
+    /* テキストの色を濃い色にして見やすくする */
+    -fx-text-fill: #000000;
+    
+    /* ボタンを角丸にする */
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    
+    /* 文字サイズと太さ */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    
+    /* パディング（ボタンのサイズ調整） */
+    -fx-padding: 8 18;
+} 
+
+/* マウスオーバー (ホバー) 効果 */
+.custom-Button:hover{
+    /* ホバー時に色を少し濃くする (例: #A0A0E0) */
+    -fx-background-color: #A0A0E0;
+    
+    /* マウスカーソルを手の形に変える */
+    -fx-cursor: hand;
 }
-.logArea{
-    background-color:var(--Rootbackcolor);
-    -fx-background-color:var(--Rootbackcolor);
+
+/* ボタンがクリックされたとき */
+#stopButton:pressed {
+    /* 押されたときにさらに濃くする (例: #8888D0) */
+    -fx-background-color: #8888D0;
+    /* 押された感を出すため、わずかに下に移動させる */
+    -fx-translate-y: 1px;
 }
-.table-view{
-    -fx-background-color:var(--Rootbackcolor);
+#logArea {
+    /* テキストの色を変更 */
+    -fx-text-fill:#ffffff;
+        
+    /* ボーダーの色を少し濃い色に変更 (任意) */
+    -fx-border-color: -fx-blue;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-control-inner-background:transparent; /* テキストエリアの背景色 */
+    -fx-background-color: transparent; /* テキストエリアの背景色 */
+}
+#logArea .viewport,#logArea .content {
+    -fx-background-color: transparent;
+}
+.text{
+    -fx-text-size:18px;
+}
+.gradation {
+    
+}
+.vbox {
+    -fx-background-color: transparent;
+}
+/* BorderPaneの背景も透明にする（スタイルクラスが設定されていなければタイプセレクタを使用） */
+.border-pane {
+    -fx-background-color: transparent;
+}
+.label {
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;
 }

@@ -3,6 +3,9 @@ package com.example;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import org.pcap4j.core.Pcaps;
 import org.pcap4j.core.PcapNetworkInterface;
 import java.util.List;
@@ -21,11 +24,12 @@ public class CaptureController {
     @FXML private Label pulseRateLabel;
     @FXML private Label smugglingRateLabel;
     
+    
     private List<PcapNetworkInterface> allDevs;
     private PacketCapture captureTask;
     private Thread captureThread;
     private ScheduledExecutorService scheduler; 
-    
+     // 体の画像表示用（将来使用予定）
     // LogQueue（PacketCaptureとログモニターの連携に使用）
     private final BlockingQueue<String> logQueue = new ArrayBlockingQueue<>(100);
 
@@ -36,6 +40,7 @@ public class CaptureController {
         stopButton.setDisable(true);
         startLogMonitor(); // ログキューを監視するスレッドを開始
 
+        
         // ネットワークデバイスの検索はブロッキングになる可能性があるため別スレッドで実行
         CompletableFuture.runAsync(() -> {
             try {

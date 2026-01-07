@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -17,6 +18,16 @@ public class MainGUI extends Application {
             Parent root = loader.load();
 
             CaptureController controller = loader.getController();
+
+            try {
+            // アイコンのロードは失敗する可能性があるため、tryで保護
+            Image applicationIcon = new Image(getClass().getResourceAsStream("/App.png"));
+            primaryStage.getIcons().add(applicationIcon);
+        } catch (Exception e) {
+            // アイコン設定が失敗しても、致命的ではないため、エラーを出力して続行
+            System.err.println("アプリアイコンのロードに失敗しました: " + e.getMessage());
+        }
+        // ★★★ 内側の try ブロック 終わり ★★★
 
             primaryStage.setTitle("デジタル・バイタルサイン分析システム");
             
