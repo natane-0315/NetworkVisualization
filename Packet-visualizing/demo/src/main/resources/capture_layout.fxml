@@ -56,7 +56,11 @@
             <Label fx:id="smugglingRateLabel" text="0.00%"  styleClass= "textBox"><font><Font size="16.0" /></font></Label>
             <Label text="脈拍 (最大レート R):" styleClass= "text"/>
             <Label fx:id="pulseRateLabel" text="データなし" styleClass= "textBox"><font><Font size="16.0" /></font></Label>
-
+            <Label text="通信速度 (Mbps):" styleClass="text"/>
+            <Label fx:id="mbpsLabel" text="0.00 Mbps" styleClass="textBox">
+            <font><Font size="16.0" /></font>
+            </Label>
+            
         </VBox>
     </left>
     

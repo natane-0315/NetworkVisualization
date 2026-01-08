@@ -23,7 +23,7 @@ public class CaptureController {
     @FXML private Label entropyLabel;
     @FXML private Label pulseRateLabel;
     @FXML private Label smugglingRateLabel;
-    
+    @FXML private Label mbpsLabel;
     
     private List<PcapNetworkInterface> allDevs;
     private PacketCapture captureTask;
@@ -143,7 +143,7 @@ public class CaptureController {
                 // スケジューラー内でのエラーはログに出力
                 Platform.runLater(() -> logArea.appendText("タイマー実行エラー: " + e.getMessage() + "\n"));
             }
-        }, 0, 60, TimeUnit.SECONDS); // 60秒ごと
+        }, 0, 3, TimeUnit.SECONDS); // 60秒ごと
     }
 
     // GUIの各ラベルを更新するメソッド
@@ -154,6 +154,10 @@ public class CaptureController {
         // 密輸率の表示
         smugglingRateLabel.setText(String.format("%.2f%%", pulseData.smugglingRate));
         
+        if (mbpsLabel != null) {
+        mbpsLabel.setText(String.format("%.2f Mbps", pulseData.mbps));
+        }
+
         // 脈拍の表示 (例: 最もパケット数が多いポートのレートを表示)
         pulseData.pulseRates.entrySet().stream()
             .max(Map.Entry.comparingByValue())
