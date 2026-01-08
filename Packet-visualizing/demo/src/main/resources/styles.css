@@ -48,8 +48,7 @@
 }
 
 /* FXMLの fx:id="stopButton" にスタイルを適用 */
-#stopButton {
-    /* ベースカラー: パステルパープル (例: #BDBDE7) */
+.custom-button{
     -fx-background-color: linear-gradient(to right,#d1ffe8 , #ffe8d1);
     
     /* テキストの色を濃い色にして見やすくする */
@@ -64,24 +63,24 @@
     -fx-font-weight: bold;
     
     /* パディング（ボタンのサイズ調整） */
-    -fx-padding: 8 18;
+    -fx-padding: 7 17;
 } 
 
 /* マウスオーバー (ホバー) 効果 */
 .custom-Button:hover{
     /* ホバー時に色を少し濃くする (例: #A0A0E0) */
-    -fx-background-color: #A0A0E0;
+    -fx-background-color: linear-gradient(to right,#738f81 , #716457);
     
     /* マウスカーソルを手の形に変える */
     -fx-cursor: hand;
 }
 
 /* ボタンがクリックされたとき */
-#stopButton:pressed {
+.custom-Button:pressed {
     /* 押されたときにさらに濃くする (例: #8888D0) */
-    -fx-background-color: #8888D0;
+    -fx-background-color: linear-gradient(to right,#3d4e45 , #403931);
     /* 押された感を出すため、わずかに下に移動させる */
-    -fx-translate-y: 1px;
+    -fx-translate-y: 2px;
 }
 #logArea {
     /* テキストの色を変更 */

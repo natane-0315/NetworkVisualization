@@ -24,6 +24,7 @@ public class CaptureController {
     @FXML private Label pulseRateLabel;
     @FXML private Label smugglingRateLabel;
     @FXML private Label mbpsLabel;
+    @FXML private Label overheadLabel;
     
     private List<PcapNetworkInterface> allDevs;
     private PacketCapture captureTask;
@@ -153,9 +154,13 @@ public class CaptureController {
         
         // 密輸率の表示
         smugglingRateLabel.setText(String.format("%.2f%%", pulseData.smugglingRate));
-        
+        //mbpsの表示
         if (mbpsLabel != null) {
         mbpsLabel.setText(String.format("%.2f Mbps", pulseData.mbps));
+        }
+        //オーバーヘッドの表示
+        if(overheadLabel != null){
+            overheadLabel.setText(String.format("%.2f%%",pulseData.overheadRate));
         }
 
         // 脈拍の表示 (例: 最もパケット数が多いポートのレートを表示)

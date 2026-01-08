@@ -27,8 +27,8 @@
             <HBox spacing="10" alignment="CENTER_LEFT">
                 <Label text="ネットワークデバイス:"/>
                 <ComboBox fx:id="nifComboBox" prefWidth="400.0"/>
-                <Button fx:id="startButton" text="キャプチャ開始" onAction="#startCapture" styleClass="custom-button"/>
-                <Button fx:id="stopButton" text="キャプチャ停止" onAction="#stopCapture" styleClass="custom-button"/>
+                <Button fx:id="startButton" text="計測開始" onAction="#startCapture" styleClass="custom-button"/>
+                <Button fx:id="stopButton"  text="計測中断" onAction="#stopCapture" styleClass="custom-button"/>
             </HBox>
 
             <Separator/>
@@ -49,17 +49,21 @@
     <left>
         <VBox spacing="10">
             <BorderPane.margin><Insets top="10" right="100" bottom="10" left="10" /></BorderPane.margin>
+
+            <Label text="血流量 (Mbps):" styleClass="text"/>
+            <Label fx:id="mbpsLabel" text="0.00 Mbps" styleClass="textBox"><font><Font size="18.0" /></font></Label>
             
-            <Label text="富の集中度 (エントロピー E):"  styleClass= "text" />
-            <Label fx:id="entropyLabel" text="0.00"  styleClass= "textBox"><font><Font size="16.0" /></font></Label>
-            <Label text="密輸率 (M):"  styleClass= "text"/>
-            <Label fx:id="smugglingRateLabel" text="0.00%"  styleClass= "textBox"><font><Font size="16.0" /></font></Label>
             <Label text="脈拍 (最大レート R):" styleClass= "text"/>
-            <Label fx:id="pulseRateLabel" text="データなし" styleClass= "textBox"><font><Font size="16.0" /></font></Label>
-            <Label text="通信速度 (Mbps):" styleClass="text"/>
-            <Label fx:id="mbpsLabel" text="0.00 Mbps" styleClass="textBox">
-            <font><Font size="16.0" /></font>
-            </Label>
+            <Label fx:id="pulseRateLabel" text="データなし" styleClass= "textBox"><font><Font size="18.0" /></font></Label>
+            
+            <Label text="呼吸効率:"/>
+            <Label fx:id="overheadLabel" text="0.0 %" styleClass ="textBox"><font><Font size="18.0"/></font></Label>
+
+            <Label text="自律神経バランス (エントロピー E):"  styleClass= "text" />
+            <Label fx:id="entropyLabel" text="0.00"  styleClass= "textBox"><font><Font size="18.0" /></font></Label>
+            
+            <Label text="非定型活動 (M):"  styleClass= "text"/>
+            <Label fx:id="smugglingRateLabel" text="0.00%"  styleClass= "textBox"><font><Font size="18.0" /></font></Label>
             
         </VBox>
     </left>
@@ -68,7 +72,7 @@
         <VBox spacing="10" prefWidth="300.0">
             
             <BorderPane.margin><Insets top="10" right="10" bottom="10" left="10" /></BorderPane.margin>
-
+            
             <Label text="ログ / 警告:"/>
             <TextArea fx:id="logArea" editable="false" prefHeight="20" VBox.vgrow="ALWAYS" HBox.hgrow = "ALWAYS" /><!-- -->
         
